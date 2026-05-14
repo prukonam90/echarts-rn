@@ -1,0 +1,125 @@
+{
+  "dimensions": [
+    {
+      "name": "estimatedDate",
+      "type": "time",
+      "unit": "date",
+      "role": "x",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "lowEstimate",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 0,
+      "role": "series",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "estimatedValue",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 0,
+      "role": "series",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "highEstimate",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 0,
+      "role": "series",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "priorMonthEstimatedPriceChange",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 0,
+      "role": "meta",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": false
+    },
+    {
+      "name": "priorMonthEstimatedPricePercentageChange",
+      "type": "number",
+      "unit": "percentage",
+      "precision": 2,
+      "role": "meta",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": false
+    }
+  ],
+
+  "source": [
+    { "estimatedDate": "2024-06-01T00:00:00Z", "lowEstimate": 395000, "estimatedValue": 412000, "highEstimate": 429000, "priorMonthEstimatedPriceChange": null, "priorMonthEstimatedPricePercentageChange": null },
+    { "estimatedDate": "2024-07-01T00:00:00Z", "lowEstimate": 398000, "estimatedValue": 415000, "highEstimate": 432000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0073 },
+    { "estimatedDate": "2024-08-01T00:00:00Z", "lowEstimate": 401000, "estimatedValue": 418000, "highEstimate": 435000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0072 },
+    { "estimatedDate": "2024-09-01T00:00:00Z", "lowEstimate": 403000, "estimatedValue": 420000, "highEstimate": 437000, "priorMonthEstimatedPriceChange": 2000, "priorMonthEstimatedPricePercentageChange": 0.0048 },
+    { "estimatedDate": "2024-10-01T00:00:00Z", "lowEstimate": 405000, "estimatedValue": 422000, "highEstimate": 439000, "priorMonthEstimatedPriceChange": 2000, "priorMonthEstimatedPricePercentageChange": 0.0048 },
+    { "estimatedDate": "2024-11-01T00:00:00Z", "lowEstimate": 408000, "estimatedValue": 425000, "highEstimate": 442000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0071 },
+    { "estimatedDate": "2024-12-01T00:00:00Z", "lowEstimate": 411000, "estimatedValue": 428000, "highEstimate": 445000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0071 },
+    { "estimatedDate": "2025-01-01T00:00:00Z", "lowEstimate": 414000, "estimatedValue": 431000, "highEstimate": 448000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0070 },
+    { "estimatedDate": "2025-02-01T00:00:00Z", "lowEstimate": 417000, "estimatedValue": 434000, "highEstimate": 451000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0070 },
+    { "estimatedDate": "2025-03-01T00:00:00Z", "lowEstimate": 421000, "estimatedValue": 438000, "highEstimate": 455000, "priorMonthEstimatedPriceChange": 4000, "priorMonthEstimatedPricePercentageChange": 0.0092 },
+    { "estimatedDate": "2025-04-01T00:00:00Z", "lowEstimate": 424000, "estimatedValue": 441000, "highEstimate": 458000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0068 },
+    { "estimatedDate": "2025-05-01T00:00:00Z", "lowEstimate": 426000, "estimatedValue": 443000, "highEstimate": 460000, "priorMonthEstimatedPriceChange": 2000, "priorMonthEstimatedPricePercentageChange": 0.0045 },
+    { "estimatedDate": "2025-06-01T00:00:00Z", "lowEstimate": 429000, "estimatedValue": 446000, "highEstimate": 463000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0068 },
+    { "estimatedDate": "2025-07-01T00:00:00Z", "lowEstimate": 432000, "estimatedValue": 449000, "highEstimate": 466000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0067 },
+    { "estimatedDate": "2025-08-01T00:00:00Z", "lowEstimate": 435000, "estimatedValue": 452000, "highEstimate": 469000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0067 },
+    { "estimatedDate": "2025-09-01T00:00:00Z", "lowEstimate": 438000, "estimatedValue": 455000, "highEstimate": 472000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0066 },
+    { "estimatedDate": "2025-10-01T00:00:00Z", "lowEstimate": 441000, "estimatedValue": 458000, "highEstimate": 475000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0066 },
+    { "estimatedDate": "2025-11-01T00:00:00Z", "lowEstimate": 444000, "estimatedValue": 461000, "highEstimate": 478000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0066 },
+    { "estimatedDate": "2025-12-01T00:00:00Z", "lowEstimate": 447000, "estimatedValue": 464000, "highEstimate": 481000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0065 },
+    { "estimatedDate": "2026-01-01T00:00:00Z", "lowEstimate": 450000, "estimatedValue": 467000, "highEstimate": 484000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0065 },
+    { "estimatedDate": "2026-02-01T00:00:00Z", "lowEstimate": 453000, "estimatedValue": 470000, "highEstimate": 487000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0064 },
+    { "estimatedDate": "2026-03-01T00:00:00Z", "lowEstimate": 456000, "estimatedValue": 473000, "highEstimate": 490000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0064 },
+    { "estimatedDate": "2026-04-01T00:00:00Z", "lowEstimate": 459000, "estimatedValue": 476000, "highEstimate": 493000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0063 },
+    { "estimatedDate": "2026-05-01T00:00:00Z", "lowEstimate": 462000, "estimatedValue": 479000, "highEstimate": 496000, "priorMonthEstimatedPriceChange": 3000, "priorMonthEstimatedPricePercentageChange": 0.0063 }
+  ],
+
+  "meta": {
+    "seriesKeys": ["lowEstimate", "estimatedValue", "highEstimate"],
+    "xDimension": "estimatedDate",
+    "defaultChartType": "line",
+    "labelKeys": {
+      "xAxis": "charts.homeValue.axes.x",
+      "yAxis": "charts.homeValue.axes.y",
+      "tooltip": "charts.homeValue.tooltip",
+      "legendByKey": {
+        "lowEstimate": "charts.homeValue.series.low",
+        "estimatedValue": "charts.homeValue.series.estimated",
+        "highEstimate": "charts.homeValue.series.high"
+      },
+      "tableColumnByKey": {
+        "estimatedDate": "charts.homeValue.columns.date",
+        "lowEstimate": "charts.homeValue.columns.low",
+        "estimatedValue": "charts.homeValue.columns.estimated",
+        "highEstimate": "charts.homeValue.columns.high",
+        "priorMonthEstimatedPriceChange": "charts.homeValue.columns.mtdChange",
+        "priorMonthEstimatedPricePercentageChange": "charts.homeValue.columns.mtdPctChange"
+      },
+      "tableCaption": "charts.homeValue.tableCaption"
+    }
+  },
+
+  "range": {
+    "granularity": "monthly",
+    "from": "2024-06-01T00:00:00Z",
+    "to": "2026-05-01T00:00:00Z"
+  }
+}

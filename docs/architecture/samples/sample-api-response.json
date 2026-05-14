@@ -1,0 +1,176 @@
+{
+  "dimensions": [
+    {
+      "name": "period",
+      "type": "time",
+      "unit": "date",
+      "role": "x",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "region",
+      "type": "ordinal",
+      "role": "meta",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": false
+    },
+    {
+      "name": "revenue",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 2,
+      "role": "series",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "expenses",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 2,
+      "role": "series",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "margin",
+      "type": "number",
+      "unit": "percentage",
+      "precision": 2,
+      "role": "meta",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": false
+    }
+  ],
+
+  "source": [
+    {
+      "period": "2024-01-01T00:00:00Z",
+      "region": "Global",
+      "revenue": 1250000.00,
+      "expenses": 820000.00,
+      "margin": 0.344,
+      "children": [
+        {
+          "period": "2024-01-01T00:00:00Z",
+          "region": "North America",
+          "revenue": 720000.00,
+          "expenses": 460000.00,
+          "margin": 0.361
+        },
+        {
+          "period": "2024-01-01T00:00:00Z",
+          "region": "EMEA",
+          "revenue": 380000.00,
+          "expenses": 260000.00,
+          "margin": 0.316
+        },
+        {
+          "period": "2024-01-01T00:00:00Z",
+          "region": "APAC",
+          "revenue": 150000.00,
+          "expenses": 100000.00,
+          "margin": 0.333
+        }
+      ]
+    },
+    {
+      "period": "2024-02-01T00:00:00Z",
+      "region": "Global",
+      "revenue": 1310000.00,
+      "expenses": 840000.00,
+      "margin": 0.359,
+      "children": [
+        {
+          "period": "2024-02-01T00:00:00Z",
+          "region": "North America",
+          "revenue": 760000.00,
+          "expenses": 470000.00,
+          "margin": 0.382
+        },
+        {
+          "period": "2024-02-01T00:00:00Z",
+          "region": "EMEA",
+          "revenue": 395000.00,
+          "expenses": 265000.00,
+          "margin": 0.329
+        },
+        {
+          "period": "2024-02-01T00:00:00Z",
+          "region": "APAC",
+          "revenue": 155000.00,
+          "expenses": 105000.00,
+          "margin": 0.323
+        }
+      ]
+    },
+    {
+      "period": "2024-03-01T00:00:00Z",
+      "region": "Global",
+      "revenue": 1280000.00,
+      "expenses": 835000.00,
+      "margin": 0.348,
+      "children": [
+        {
+          "period": "2024-03-01T00:00:00Z",
+          "region": "North America",
+          "revenue": 740000.00,
+          "expenses": 465000.00,
+          "margin": 0.372
+        },
+        {
+          "period": "2024-03-01T00:00:00Z",
+          "region": "EMEA",
+          "revenue": 385000.00,
+          "expenses": 265000.00,
+          "margin": 0.312
+        },
+        {
+          "period": "2024-03-01T00:00:00Z",
+          "region": "APAC",
+          "revenue": 155000.00,
+          "expenses": 105000.00,
+          "margin": 0.323
+        }
+      ]
+    }
+  ],
+
+  "meta": {
+    "seriesKeys": ["revenue", "expenses"],
+    "xDimension": "period",
+    "defaultChartType": "line",
+    "chartFlattenStrategy": "rootsOnly",
+    "labelKeys": {
+      "xAxis": "charts.revenue.axes.x",
+      "yAxis": "charts.revenue.axes.y",
+      "tooltip": "charts.revenue.tooltip",
+      "legendByKey": {
+        "revenue": "charts.revenue.series.revenue",
+        "expenses": "charts.revenue.series.expenses"
+      },
+      "tableColumnByKey": {
+        "period": "charts.revenue.columns.period",
+        "region": "charts.revenue.columns.region",
+        "revenue": "charts.revenue.columns.revenue",
+        "expenses": "charts.revenue.columns.expenses",
+        "margin": "charts.revenue.columns.margin"
+      },
+      "tableCaption": "charts.revenue.tableCaption"
+    }
+  },
+
+  "range": {
+    "granularity": "monthly",
+    "from": "2024-01-01T00:00:00Z",
+    "to": "2026-12-01T00:00:00Z"
+  }
+}
