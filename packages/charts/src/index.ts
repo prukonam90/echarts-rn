@@ -7,6 +7,8 @@ export type {
   ChartRangeInfo,
   ChartRow,
   ChartType,
+  ChartTemplate,
+  TemplatedChartResponse,
   Dimension,
   DimensionType,
   DimensionUnit,
@@ -30,6 +32,7 @@ export { usePresenterContext } from './contract/context';
 // Builders
 export { ChartView } from './builders/ChartView';
 export { DataTable } from './builders/DataTable';
+export { TemplatePreview } from './builders/TemplatePreview';
 export { lineChartBuilder } from './builders/lineChartBuilder';
 export { barChartBuilder } from './builders/barChartBuilder';
 export { areaChartBuilder } from './builders/areaChartBuilder';
@@ -50,3 +53,6 @@ export { useChartTypeFlag, setChartTypeOverride } from './flags/useChartTypeFlag
 export { cdnUrl, setCDNBaseUrl } from './cdn/config';
 export { fetchChartTemplate } from './cdn/fetchChartTemplate';
 export { deepMerge } from './cdn/deepMerge';
+
+// Server / template engine
+export { resolveTemplate } from './server/resolveTemplate';

@@ -62,3 +62,22 @@ export interface PresenterContext {
   formatPercent: (value: number, precision?: number) => string;
   formatNumber: (value: number, precision?: number) => string;
 }
+
+export interface ChartTemplate {
+  templateId: string;
+  version: string;
+  chartType: ChartType;
+  option: Record<string, unknown>;
+  description?: string;
+}
+
+export interface TemplatedChartResponse {
+  chartOption: Record<string, unknown>;
+  tablePayload: ChartDataPayload;
+  meta: {
+    templateId: string;
+    chartType: ChartType;
+    range: ChartRangeInfo;
+    resolvedAt: string;
+  };
+}

@@ -43,13 +43,12 @@ export function HomeEquityScreen() {
     select: (payload) => groupByYear(sliceByRange(payload, range)),
   });
 
-  const chartOption: EChartsOption | undefined =
-    rawChartOption && template && Object.keys(template).length > 0
-      ? (deepMerge(
-          template as Record<string, unknown>,
-          rawChartOption as Record<string, unknown>,
-        ) as EChartsOption)
-      : rawChartOption;
+  const chartOption: EChartsOption | undefined = rawChartOption
+    ? (deepMerge(
+        (template?.option ?? {}) as Record<string, unknown>,
+        rawChartOption as Record<string, unknown>,
+      ) as EChartsOption)
+    : undefined;
 
   if (!chartOption || !tablePayload) {
     return (
