@@ -1,14 +1,15 @@
+const path = require('path');
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('@react-native/metro-config').MetroConfig}
- */
+const packagesDir = path.resolve(__dirname, 'packages');
+
 const config = {
+  watchFolders: [packagesDir],
   resolver: {
     unstable_enablePackageExports: true,
+    extraNodeModules: {
+      '@xpanse/native-charts': path.resolve(packagesDir, 'charts'),
+    },
   },
 };
 

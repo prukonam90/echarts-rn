@@ -1,6 +1,6 @@
 import { sliceByRange } from '../sliceByRange';
 import type { ChartDataPayload, Range } from '../../contract/types';
-import sample from '../../domains/homeValue/sample-hvv-response.json';
+import sample from '../../cdn/fixtures/home-value.json';
 
 const PAYLOAD = sample as ChartDataPayload;
 
