@@ -54,6 +54,14 @@ export interface ChartDataPayload {
   range: ChartRangeInfo;
 }
 
+export interface ApiRawPayload {
+  sourceMapKeys: string[];
+  source: ChartCellValue[][];
+  dimensions: Dimension[];
+  meta: ChartMeta;
+  range: ChartRangeInfo;
+}
+
 export interface PresenterContext {
   locale: string;
   t: (key: string) => string;

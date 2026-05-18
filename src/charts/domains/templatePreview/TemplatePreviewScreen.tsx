@@ -3,13 +3,14 @@ import { useQuery } from '@tanstack/react-query';
 import {
   TemplatePreview,
   fetchChartTemplate,
+  normalizeApiPayload,
   usePresenterContext,
 } from '@xpanse/native-charts';
-import type { ChartType } from '@xpanse/native-charts';
-import sampleData from '../homeValue/sample-hvv-response.json';
-import type { ChartDataPayload } from '@xpanse/native-charts';
+import type { ApiRawPayload, ChartType } from '@xpanse/native-charts';
+import rawSampleData from '../homeValue/sample-hvv-response.json';
 
 const CHART_TYPES: ChartType[] = ['line', 'bar', 'area', 'pie'];
+const sampleData = normalizeApiPayload(rawSampleData as unknown as ApiRawPayload);
 
 function TemplateCard({ chartType }: { chartType: ChartType }) {
   const ctx = usePresenterContext('charts.homeValue');
@@ -34,7 +35,7 @@ function TemplateCard({ chartType }: { chartType: ChartType }) {
       ) : null}
       <TemplatePreview
         template={template}
-        samplePayload={sampleData as ChartDataPayload}
+        samplePayload={sampleData}
         ctx={ctx}
         range="1y"
       />

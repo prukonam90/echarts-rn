@@ -1,5 +1,6 @@
 // Contract
 export type {
+  ApiRawPayload,
   ChartCellValue,
   ChartDataPayload,
   ChartLabelKeys,
@@ -44,6 +45,7 @@ export { flattenForChart } from './utils/flattenForChart';
 export { groupByYear } from './utils/groupByYear';
 export { isHierarchical } from './utils/isHierarchical';
 export { monthsBetween } from './utils/monthsBetween';
+export { normalizeApiPayload } from './utils/normalizeApiPayload';
 export { sliceByRange } from './utils/sliceByRange';
 
 // Flags
