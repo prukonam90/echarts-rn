@@ -1,0 +1,89 @@
+{
+  "dimensions": [
+    {
+      "name": "period",
+      "type": "time",
+      "unit": "date",
+      "role": "x",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "homeValue",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 0,
+      "role": "series",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    },
+    {
+      "name": "equity",
+      "type": "number",
+      "unit": "currency",
+      "currency": "USD",
+      "precision": 0,
+      "role": "series",
+      "sortable": true,
+      "visibleInTable": true,
+      "visibleInChart": true
+    }
+  ],
+
+  "source": [
+    { "period": "2024-06-01T00:00:00Z", "homeValue": 412000, "equity": 78000 },
+    { "period": "2024-07-01T00:00:00Z", "homeValue": 415000, "equity": 82000 },
+    { "period": "2024-08-01T00:00:00Z", "homeValue": 418000, "equity": 86000 },
+    { "period": "2024-09-01T00:00:00Z", "homeValue": 420000, "equity": 89000 },
+    { "period": "2024-10-01T00:00:00Z", "homeValue": 422000, "equity": 93000 },
+    { "period": "2024-11-01T00:00:00Z", "homeValue": 425000, "equity": 97000 },
+    { "period": "2024-12-01T00:00:00Z", "homeValue": 428000, "equity": 101000 },
+    { "period": "2025-01-01T00:00:00Z", "homeValue": 431000, "equity": 105000 },
+    { "period": "2025-02-01T00:00:00Z", "homeValue": 434000, "equity": 109000 },
+    { "period": "2025-03-01T00:00:00Z", "homeValue": 438000, "equity": 113000 },
+    { "period": "2025-04-01T00:00:00Z", "homeValue": 441000, "equity": 118000 },
+    { "period": "2025-05-01T00:00:00Z", "homeValue": 443000, "equity": 122000 },
+    { "period": "2025-06-01T00:00:00Z", "homeValue": 446000, "equity": 127000 },
+    { "period": "2025-07-01T00:00:00Z", "homeValue": 449000, "equity": 132000 },
+    { "period": "2025-08-01T00:00:00Z", "homeValue": 452000, "equity": 137000 },
+    { "period": "2025-09-01T00:00:00Z", "homeValue": 455000, "equity": 142000 },
+    { "period": "2025-10-01T00:00:00Z", "homeValue": 458000, "equity": 147000 },
+    { "period": "2025-11-01T00:00:00Z", "homeValue": 461000, "equity": 152000 },
+    { "period": "2025-12-01T00:00:00Z", "homeValue": 464000, "equity": 157000 },
+    { "period": "2026-01-01T00:00:00Z", "homeValue": 467000, "equity": 163000 },
+    { "period": "2026-02-01T00:00:00Z", "homeValue": 470000, "equity": 168000 },
+    { "period": "2026-03-01T00:00:00Z", "homeValue": 473000, "equity": 174000 },
+    { "period": "2026-04-01T00:00:00Z", "homeValue": 476000, "equity": 180000 },
+    { "period": "2026-05-01T00:00:00Z", "homeValue": 479000, "equity": 186000 }
+  ],
+
+  "meta": {
+    "seriesKeys": ["homeValue", "equity"],
+    "xDimension": "period",
+    "defaultChartType": "line",
+    "labelKeys": {
+      "xAxis": "charts.homeEquity.axes.x",
+      "yAxis": "charts.homeEquity.axes.y",
+      "tooltip": "charts.homeEquity.tooltip",
+      "legendByKey": {
+        "homeValue": "charts.homeEquity.series.homeValue",
+        "equity": "charts.homeEquity.series.equity"
+      },
+      "tableColumnByKey": {
+        "period": "charts.homeEquity.columns.period",
+        "homeValue": "charts.homeEquity.columns.homeValue",
+        "equity": "charts.homeEquity.columns.equity"
+      },
+      "tableCaption": "charts.homeEquity.tableCaption"
+    }
+  },
+
+  "range": {
+    "granularity": "monthly",
+    "from": "2024-06-01T00:00:00Z",
+    "to": "2026-05-01T00:00:00Z"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "templateId": "area-financial",
+  "version": "1.0.0",
+  "chartType": "area",
+  "description": "Area chart with translucent fill for financial ranges",
+  "option": {
+    "color": ["#0a84ff", "#30b0c7", "#32ade6"],
+    "grid": { "top": 40, "right": 20, "bottom": 48, "left": 64 },
+    "legend": { "show": true, "bottom": 0 },
+    "tooltip": { "trigger": "axis" }
+  }
+}

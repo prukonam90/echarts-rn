@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import type { Range } from '../../contract/types';
+import type { Range } from '@xpanse/native-charts';
 
 const OPTIONS: { value: Range; label: string }[] = [
   { value: '6m', label: '6 MO' },

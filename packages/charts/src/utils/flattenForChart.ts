@@ -5,7 +5,7 @@ export function flattenForChart(
   strategy: FlattenStrategy,
 ): ChartRow[] {
   if (strategy === 'rootsOnly') {
-    return source.map(({ children, ...rest }) => rest as ChartRow);
+    return source.map(({ children: _children, ...rest }) => rest as ChartRow);
   }
   if (strategy === 'leavesOnly') {
     const out: ChartRow[] = [];

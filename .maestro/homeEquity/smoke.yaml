@@ -1,0 +1,8 @@
+appId: org.reactjs.native.example.EchartsRn
+---
+- launchApp
+- scrollUntilVisible:
+    element: "Home Equity"
+    direction: DOWN
+- assertVisible: "Home Equity"
+- assertVisible: "1 YR"

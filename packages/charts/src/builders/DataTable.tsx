@@ -116,8 +116,6 @@ function DataRow({
   return (
     <View style={[styles.row, styles.bodyRow]}>
       {row.getVisibleCells().map((cell) => {
-        // flexRender would treat our function as a React component and wrap it
-        // in createElement — call it directly to get the plain CellDescriptor.
         const cellFn = cell.column.columnDef.cell as (
           info: ReturnType<typeof cell.getContext>,
         ) => CellDescriptor;

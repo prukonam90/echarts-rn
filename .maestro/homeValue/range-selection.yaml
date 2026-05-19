@@ -1,0 +1,12 @@
+appId: org.reactjs.native.example.EchartsRn
+---
+- launchApp
+- assertVisible: "Home Value"
+- tapOn: "3 YR"
+- assertVisible: "3 YR"
+- tapOn: "5 YR"
+- assertVisible: "5 YR"
+- tapOn: "6 MO"
+- assertVisible: "6 MO"
+- tapOn: "1 YR"
+- assertVisible: "1 YR"

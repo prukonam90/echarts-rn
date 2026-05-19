@@ -1,5 +1,5 @@
 {
-  "name": "EchartsRn",
+  "name": "echarts-rn",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,9 +8,18 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm --filter @xpanse/native-charts build && pnpm changeset publish",
+    "prepare": "lefthook install",
+    "pod-install": "bundle exec pod install --project-directory=ios",
+    "test:e2e": "maestro test .maestro/homeValue/smoke.yaml .maestro/homeValue/range-selection.yaml .maestro/homeEquity/smoke.yaml",
+    "test:e2e:homeValue": "maestro test .maestro/homeValue/smoke.yaml .maestro/homeValue/range-selection.yaml",
+    "test:e2e:homeEquity": "maestro test .maestro/homeEquity/smoke.yaml"
   },
   "dependencies": {
+    "@xpanse/native-charts": "workspace:*",
     "@react-native/new-app-screen": "0.83.2",
     "@tanstack/react-query": "^5.100.10",
     "@tanstack/react-table": "^8.21.3",
@@ -28,6 +37,10 @@
     "zrender": "6.0.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@evilmartians/lefthook": "^1.11.13",
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
