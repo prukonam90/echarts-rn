@@ -1,6 +1,6 @@
 # Chart + Table Pipeline — Architecture Plan
 
-**Status:** Ready for build
+**Status:** Historical reference — see [CLAUDE.md](../../CLAUDE.md) for authoritative conventions and [packages/charts/README.md](../../packages/charts/README.md) for usage.
 **Goal:** A scalable client architecture where one API response powers both a chart (ECharts) and a table (TanStack), with line chart first and pie/bar later — all switchable via feature flag.
 
 ---
@@ -19,6 +19,44 @@ API ──► React Query cache ──► Adapter ──► ChartDataPayload ─
 - **Table Presenter** maps the same payload to TanStack `columns` + `data` (with sub-row support).
 - **Feature flag (VWO)** selects the chart presenter at render time; defaults to line if anything fails.
 - **i18n** owns all formatting (date, currency, percentage) and all label strings.
+
+---
+
+## 1a. Wire format & normalization
+
+The API returns `source` as an array of tuples (bandwidth-efficient) alongside a `sourceMapKeys` header that names each column position. This is the `ApiRawPayload` wire format.
+
+```ts
+interface ApiRawPayload {
+  sourceMapKeys: string[];          // e.g. ["period", "homeValue", "equity"]
+  source: ChartCellValue[][];       // e.g. [["2024-06-01T00:00:00Z", 412000, 78000], ...]
+  dimensions: Dimension[];
+  meta: ChartMeta;
+  range: ChartRangeInfo;
+}
+```
+
+`normalizeApiPayload()` converts the tuple source to keyed `ChartRow[]` objects at the fetch boundary, producing the `ChartDataPayload` that all downstream utilities, builders, and components expect:
+
+```ts
+normalizeApiPayload(raw: ApiRawPayload): ChartDataPayload
+// source: [["2024-06-01T00:00:00Z", 412000, 78000]]
+//       → [{ period: "2024-06-01T00:00:00Z", homeValue: 412000, equity: 78000 }]
+```
+
+The updated pipeline with normalization:
+
+```
+API (ApiRawPayload)
+  └─ normalizeApiPayload()   → ChartDataPayload
+       └─ React Query cache
+            └─ sliceByRange(payload, range)
+                 ├─ getBuilder(type)(sliced, ctx)
+                 │    └─ deepMerge(template.option, option) ──► ECharts option
+                 └─ groupByYear(sliced) ──────────────────────► TanStack {columns, data}
+```
+
+Nothing downstream of `normalizeApiPayload` — builders, utilities, screen components — ever sees the raw tuple format. The normalization is called once per fetch function, immediately after the HTTP response.
 
 ---
 
