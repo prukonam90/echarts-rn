@@ -1,0 +1,35 @@
+name: Publish chart templates to S3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/charts/src/cdn/templates/**'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Sync templates to S3
+        run: |
+          aws s3 sync packages/charts/src/cdn/templates/ \
+            s3://${{ secrets.S3_BUCKET }}/native-charts/templates/ \
+            --content-type application/json \
+            --cache-control "max-age=300" \
+            --delete
+
+      - name: Invalidate CDN cache (optional)
+        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/native-charts/templates/*"

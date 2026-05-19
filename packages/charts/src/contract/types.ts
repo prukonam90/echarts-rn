@@ -54,6 +54,14 @@ export interface ChartDataPayload {
   range: ChartRangeInfo;
 }
 
+export interface ApiRawPayload {
+  sourceMapKeys: string[];
+  source: ChartCellValue[][];
+  dimensions: Dimension[];
+  meta: ChartMeta;
+  range: ChartRangeInfo;
+}
+
 export interface PresenterContext {
   locale: string;
   t: (key: string) => string;
@@ -61,4 +69,23 @@ export interface PresenterContext {
   formatCurrency: (value: number, currency: string, precision?: number) => string;
   formatPercent: (value: number, precision?: number) => string;
   formatNumber: (value: number, precision?: number) => string;
+}
+
+export interface ChartTemplate {
+  templateId: string;
+  version: string;
+  chartType: ChartType;
+  option: Record<string, unknown>;
+  description?: string;
+}
+
+export interface TemplatedChartResponse {
+  chartOption: Record<string, unknown>;
+  tablePayload: ChartDataPayload;
+  meta: {
+    templateId: string;
+    chartType: ChartType;
+    range: ChartRangeInfo;
+    resolvedAt: string;
+  };
 }

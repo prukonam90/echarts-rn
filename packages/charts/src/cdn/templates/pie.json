@@ -1,0 +1,11 @@
+{
+  "templateId": "pie-financial",
+  "version": "1.0.0",
+  "chartType": "pie",
+  "description": "Pie chart for point-in-time financial distribution",
+  "option": {
+    "color": ["#0a84ff", "#30d158", "#ff9f0a", "#ff453a"],
+    "legend": { "show": true, "orient": "vertical", "left": "left" },
+    "tooltip": { "trigger": "item" }
+  }
+}

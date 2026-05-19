@@ -1,0 +1,12 @@
+{
+  "templateId": "line-financial",
+  "version": "1.0.0",
+  "chartType": "line",
+  "description": "Smooth line chart for financial time-series",
+  "option": {
+    "color": ["#0a84ff", "#30b0c7", "#32ade6"],
+    "grid": { "top": 40, "right": 20, "bottom": 48, "left": 64 },
+    "legend": { "show": true, "bottom": 0 },
+    "tooltip": { "trigger": "axis" }
+  }
+}
