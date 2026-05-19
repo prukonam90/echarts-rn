@@ -53,6 +53,10 @@
     "react-i18next": ">=14",
     "react-native": ">=0.80"
   },
+  "peerDependenciesMeta": {
+    "i18next": { "optional": true },
+    "react-i18next": { "optional": true }
+  },
   "devDependencies": {
     "@react-native/typescript-config": "0.83.2",
     "react-native-builder-bob": "^0.40.0",

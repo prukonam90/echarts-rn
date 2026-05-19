@@ -1,62 +1,27 @@
-import { useState } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
-import { useQuery } from '@tanstack/react-query';
+import { useMemo, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import {
   ChartView,
   DataTable,
-  deepMerge,
-  fetchChartTemplate,
-  getBuilder,
-  groupByYear,
-  sliceByRange,
+  transformPayload,
   useChartTypeFlag,
   usePresenterContext,
 } from '@xpanse/native-charts';
-import type { EChartsOption } from 'echarts';
-import type { Range } from '@xpanse/native-charts';
-import { fetchHomeEquity } from './fetchHomeEquity';
+import type { ApiRawPayload, Range } from '@xpanse/native-charts';
+import rawData from './sample-home-equity-response.json';
 import { RangeDropdown } from '../homeValue/RangeDropdown';
 
-const QUERY_KEY = ['homeEquity'] as const;
+const PAYLOAD = rawData as unknown as ApiRawPayload;
 
 export function HomeEquityScreen() {
   const [range, setRange] = useState<Range>('1y');
   const ctx = usePresenterContext('charts.homeEquity');
   const chartType = useChartTypeFlag('chart.homeEquity.type', 'line');
 
-  const { data: template } = useQuery({
-    queryKey: ['chartTemplate', chartType],
-    queryFn: () => fetchChartTemplate(chartType),
-    staleTime: Infinity,
-  });
-
-  const { data: rawChartOption } = useQuery({
-    queryKey: QUERY_KEY,
-    queryFn: fetchHomeEquity,
-    select: (payload) =>
-      getBuilder(chartType)(sliceByRange(payload, range), ctx),
-  });
-
-  const { data: tablePayload } = useQuery({
-    queryKey: QUERY_KEY,
-    queryFn: fetchHomeEquity,
-    select: (payload) => groupByYear(sliceByRange(payload, range)),
-  });
-
-  const chartOption: EChartsOption | undefined = rawChartOption
-    ? (deepMerge(
-        (template?.option ?? {}) as Record<string, unknown>,
-        rawChartOption as Record<string, unknown>,
-      ) as EChartsOption)
-    : undefined;
-
-  if (!chartOption || !tablePayload) {
-    return (
-      <View style={styles.center}>
-        <ActivityIndicator />
-      </View>
-    );
-  }
+  const { chartOption, tablePayload } = useMemo(
+    () => transformPayload(PAYLOAD, { chartType, range, ctx }),
+    [range, chartType, ctx],
+  );
 
   return (
     <View style={styles.container}>
@@ -70,15 +35,6 @@ export function HomeEquityScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingBottom: 16,
-  },
-  center: {
-    minHeight: 280,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  chartFrame: {
-    paddingVertical: 8,
-  },
+  container: { paddingBottom: 16 },
+  chartFrame: { paddingVertical: 8 },
 });

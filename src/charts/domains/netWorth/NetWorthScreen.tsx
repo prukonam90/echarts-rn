@@ -8,15 +8,15 @@ import {
   usePresenterContext,
 } from '@xpanse/native-charts';
 import type { ApiRawPayload, Range } from '@xpanse/native-charts';
-import rawData from './sample-hvv-response.json';
-import { RangeDropdown } from './RangeDropdown';
+import rawData from './sample-net-worth-response.json';
+import { RangeDropdown } from '../homeValue/RangeDropdown';
 
 const PAYLOAD = rawData as unknown as ApiRawPayload;
 
-export function HomeValueScreen() {
+export function NetWorthScreen() {
   const [range, setRange] = useState<Range>('1y');
-  const ctx = usePresenterContext('charts.homeValue');
-  const chartType = useChartTypeFlag('chart.homeValue.type', 'line');
+  const ctx = usePresenterContext('charts.netWorth');
+  const chartType = useChartTypeFlag('chart.netWorth.type', 'pie');
 
   const { chartOption, tablePayload } = useMemo(
     () => transformPayload(PAYLOAD, { chartType, range, ctx }),

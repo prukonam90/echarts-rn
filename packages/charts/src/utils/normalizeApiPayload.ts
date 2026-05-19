@@ -1,8 +1,12 @@
-import type { ApiRawPayload, ChartDataPayload } from '../contract/types';
+import type { ApiRawPayload, ChartDataPayload, ChartRow } from '../contract/types';
 
 export function normalizeApiPayload(raw: ApiRawPayload): ChartDataPayload {
-  const source = raw.source.map(row =>
-    Object.fromEntries(raw.sourceMapKeys.map((key, i) => [key, row[i]]))
-  );
+  const source: ChartRow[] = raw.source.map((tuple) => {
+    const row: ChartRow = {};
+    raw.sourceMapKeys.forEach((key, i) => {
+      row[key] = tuple[i];
+    });
+    return row;
+  });
   return { dimensions: raw.dimensions, source, meta: raw.meta, range: raw.range };
 }

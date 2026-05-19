@@ -1,0 +1,63 @@
+{
+  "sourceMapKeys": ["date", "contributions", "returns"],
+
+  "source": [
+    ["2024-06-01T00:00:00Z",  1500,    9],
+    ["2024-07-01T00:00:00Z",  3000,   27],
+    ["2024-08-01T00:00:00Z",  4500,   53],
+    ["2024-09-01T00:00:00Z",  6000,   88],
+    ["2024-10-01T00:00:00Z",  7500,  131],
+    ["2024-11-01T00:00:00Z",  9000,  183],
+    ["2024-12-01T00:00:00Z", 10500,  244],
+    ["2025-01-01T00:00:00Z", 12000,  314],
+    ["2025-02-01T00:00:00Z", 13500,  393],
+    ["2025-03-01T00:00:00Z", 15000,  481],
+    ["2025-04-01T00:00:00Z", 16500,  578],
+    ["2025-05-01T00:00:00Z", 18000,  685],
+    ["2025-06-01T00:00:00Z", 19500,  801],
+    ["2025-07-01T00:00:00Z", 21000,  927],
+    ["2025-08-01T00:00:00Z", 22500, 1063],
+    ["2025-09-01T00:00:00Z", 24000, 1209],
+    ["2025-10-01T00:00:00Z", 25500, 1366],
+    ["2025-11-01T00:00:00Z", 27000, 1533],
+    ["2025-12-01T00:00:00Z", 28500, 1710],
+    ["2026-01-01T00:00:00Z", 30000, 1899],
+    ["2026-02-01T00:00:00Z", 31500, 2099],
+    ["2026-03-01T00:00:00Z", 33000, 2310],
+    ["2026-04-01T00:00:00Z", 34500, 2533],
+    ["2026-05-01T00:00:00Z", 36000, 2768]
+  ],
+
+  "dimensions": [
+    { "name": "date",          "type": "time",   "unit": "date",     "role": "x",      "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "contributions", "type": "number", "unit": "currency", "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "returns",       "type": "number", "unit": "currency", "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true }
+  ],
+
+  "meta": {
+    "seriesKeys": ["contributions", "returns"],
+    "xDimension": "date",
+    "defaultChartType": "area",
+    "labelKeys": {
+      "xAxis": "charts.savingsGrowth.axes.x",
+      "yAxis": "charts.savingsGrowth.axes.y",
+      "tooltip": "charts.savingsGrowth.tooltip",
+      "legendByKey": {
+        "contributions": "charts.savingsGrowth.series.contributions",
+        "returns":       "charts.savingsGrowth.series.returns"
+      },
+      "tableColumnByKey": {
+        "date":          "charts.savingsGrowth.columns.date",
+        "contributions": "charts.savingsGrowth.columns.contributions",
+        "returns":       "charts.savingsGrowth.columns.returns"
+      },
+      "tableCaption": "charts.savingsGrowth.tableCaption"
+    }
+  },
+
+  "range": {
+    "granularity": "monthly",
+    "from": "2024-06-01T00:00:00Z",
+    "to":   "2026-05-01T00:00:00Z"
+  }
+}

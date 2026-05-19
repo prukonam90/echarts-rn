@@ -1,0 +1,66 @@
+{
+  "sourceMapKeys": ["date", "principal", "interest", "escrow"],
+
+  "source": [
+    ["2024-06-01T00:00:00Z",  322, 1896, 490],
+    ["2024-07-01T00:00:00Z",  324, 1894, 490],
+    ["2024-08-01T00:00:00Z",  326, 1892, 490],
+    ["2024-09-01T00:00:00Z",  327, 1891, 490],
+    ["2024-10-01T00:00:00Z",  329, 1889, 490],
+    ["2024-11-01T00:00:00Z",  331, 1887, 490],
+    ["2024-12-01T00:00:00Z",  333, 1885, 490],
+    ["2025-01-01T00:00:00Z",  335, 1883, 490],
+    ["2025-02-01T00:00:00Z",  337, 1881, 490],
+    ["2025-03-01T00:00:00Z",  339, 1879, 490],
+    ["2025-04-01T00:00:00Z",  341, 1877, 490],
+    ["2025-05-01T00:00:00Z",  343, 1875, 490],
+    ["2025-06-01T00:00:00Z",  345, 1873, 490],
+    ["2025-07-01T00:00:00Z",  347, 1871, 490],
+    ["2025-08-01T00:00:00Z",  349, 1869, 490],
+    ["2025-09-01T00:00:00Z",  351, 1867, 490],
+    ["2025-10-01T00:00:00Z",  353, 1865, 490],
+    ["2025-11-01T00:00:00Z",  355, 1863, 490],
+    ["2025-12-01T00:00:00Z",  357, 1861, 490],
+    ["2026-01-01T00:00:00Z",  359, 1859, 490],
+    ["2026-02-01T00:00:00Z",  361, 1857, 490],
+    ["2026-03-01T00:00:00Z",  363, 1855, 490],
+    ["2026-04-01T00:00:00Z",  366, 1852, 490],
+    ["2026-05-01T00:00:00Z",  368, 1850, 490]
+  ],
+
+  "dimensions": [
+    { "name": "date",      "type": "time",   "unit": "date",     "role": "x",      "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "principal", "type": "number", "unit": "currency", "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "interest",  "type": "number", "unit": "currency", "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "escrow",    "type": "number", "unit": "currency", "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true }
+  ],
+
+  "meta": {
+    "seriesKeys": ["principal", "interest", "escrow"],
+    "xDimension": "date",
+    "defaultChartType": "bar",
+    "labelKeys": {
+      "xAxis": "charts.monthlyPayment.axes.x",
+      "yAxis": "charts.monthlyPayment.axes.y",
+      "tooltip": "charts.monthlyPayment.tooltip",
+      "legendByKey": {
+        "principal": "charts.monthlyPayment.series.principal",
+        "interest":  "charts.monthlyPayment.series.interest",
+        "escrow":    "charts.monthlyPayment.series.escrow"
+      },
+      "tableColumnByKey": {
+        "date":      "charts.monthlyPayment.columns.date",
+        "principal": "charts.monthlyPayment.columns.principal",
+        "interest":  "charts.monthlyPayment.columns.interest",
+        "escrow":    "charts.monthlyPayment.columns.escrow"
+      },
+      "tableCaption": "charts.monthlyPayment.tableCaption"
+    }
+  },
+
+  "range": {
+    "granularity": "monthly",
+    "from": "2024-06-01T00:00:00Z",
+    "to":   "2026-05-01T00:00:00Z"
+  }
+}

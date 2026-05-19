@@ -1,104 +1,40 @@
 {
-  "sourceMapKeys": [
-    "estimatedDate",
-    "lowEstimate",
-    "estimatedValue",
-    "highEstimate",
-    "priorMonthEstimatedPriceChange",
-    "priorMonthEstimatedPricePercentageChange"
-  ],
+  "sourceMapKeys": ["estimatedDate", "lowEstimate", "estimatedValue", "highEstimate", "priorMonthEstimatedPriceChange", "priorMonthEstimatedPricePercentageChange"],
 
   "source": [
-    ["2024-06-01T00:00:00Z", 395000, 412000, 429000, null, null],
-    ["2024-07-01T00:00:00Z", 398000, 415000, 432000, 3000, 0.0073],
-    ["2024-08-01T00:00:00Z", 401000, 418000, 435000, 3000, 0.0072],
-    ["2024-09-01T00:00:00Z", 403000, 420000, 437000, 2000, 0.0048],
-    ["2024-10-01T00:00:00Z", 405000, 422000, 439000, 2000, 0.0048],
-    ["2024-11-01T00:00:00Z", 408000, 425000, 442000, 3000, 0.0071],
-    ["2024-12-01T00:00:00Z", 411000, 428000, 445000, 3000, 0.0071],
-    ["2025-01-01T00:00:00Z", 414000, 431000, 448000, 3000, 0.0070],
-    ["2025-02-01T00:00:00Z", 417000, 434000, 451000, 3000, 0.0070],
-    ["2025-03-01T00:00:00Z", 421000, 438000, 455000, 4000, 0.0092],
-    ["2025-04-01T00:00:00Z", 424000, 441000, 458000, 3000, 0.0068],
-    ["2025-05-01T00:00:00Z", 426000, 443000, 460000, 2000, 0.0045],
-    ["2025-06-01T00:00:00Z", 429000, 446000, 463000, 3000, 0.0068],
-    ["2025-07-01T00:00:00Z", 432000, 449000, 466000, 3000, 0.0067],
-    ["2025-08-01T00:00:00Z", 435000, 452000, 469000, 3000, 0.0067],
-    ["2025-09-01T00:00:00Z", 438000, 455000, 472000, 3000, 0.0066],
-    ["2025-10-01T00:00:00Z", 441000, 458000, 475000, 3000, 0.0066],
-    ["2025-11-01T00:00:00Z", 444000, 461000, 478000, 3000, 0.0066],
-    ["2025-12-01T00:00:00Z", 447000, 464000, 481000, 3000, 0.0065],
-    ["2026-01-01T00:00:00Z", 450000, 467000, 484000, 3000, 0.0065],
-    ["2026-02-01T00:00:00Z", 453000, 470000, 487000, 3000, 0.0064],
-    ["2026-03-01T00:00:00Z", 456000, 473000, 490000, 3000, 0.0064],
-    ["2026-04-01T00:00:00Z", 459000, 476000, 493000, 3000, 0.0063],
-    ["2026-05-01T00:00:00Z", 462000, 479000, 496000, 3000, 0.0063]
+    ["2024-06-01T00:00:00Z", 395000, 412000, 429000, null,  null  ],
+    ["2024-07-01T00:00:00Z", 398000, 415000, 432000,  3000, 0.0073],
+    ["2024-08-01T00:00:00Z", 401000, 418000, 435000,  3000, 0.0072],
+    ["2024-09-01T00:00:00Z", 403000, 420000, 437000,  2000, 0.0048],
+    ["2024-10-01T00:00:00Z", 405000, 422000, 439000,  2000, 0.0048],
+    ["2024-11-01T00:00:00Z", 408000, 425000, 442000,  3000, 0.0071],
+    ["2024-12-01T00:00:00Z", 411000, 428000, 445000,  3000, 0.0071],
+    ["2025-01-01T00:00:00Z", 414000, 431000, 448000,  3000, 0.0070],
+    ["2025-02-01T00:00:00Z", 417000, 434000, 451000,  3000, 0.0070],
+    ["2025-03-01T00:00:00Z", 421000, 438000, 455000,  4000, 0.0092],
+    ["2025-04-01T00:00:00Z", 424000, 441000, 458000,  3000, 0.0068],
+    ["2025-05-01T00:00:00Z", 426000, 443000, 460000,  2000, 0.0045],
+    ["2025-06-01T00:00:00Z", 429000, 446000, 463000,  3000, 0.0068],
+    ["2025-07-01T00:00:00Z", 432000, 449000, 466000,  3000, 0.0067],
+    ["2025-08-01T00:00:00Z", 435000, 452000, 469000,  3000, 0.0067],
+    ["2025-09-01T00:00:00Z", 438000, 455000, 472000,  3000, 0.0066],
+    ["2025-10-01T00:00:00Z", 441000, 458000, 475000,  3000, 0.0066],
+    ["2025-11-01T00:00:00Z", 444000, 461000, 478000,  3000, 0.0066],
+    ["2025-12-01T00:00:00Z", 447000, 464000, 481000,  3000, 0.0065],
+    ["2026-01-01T00:00:00Z", 450000, 467000, 484000,  3000, 0.0065],
+    ["2026-02-01T00:00:00Z", 453000, 470000, 487000,  3000, 0.0064],
+    ["2026-03-01T00:00:00Z", 456000, 473000, 490000,  3000, 0.0064],
+    ["2026-04-01T00:00:00Z", 459000, 476000, 493000,  3000, 0.0063],
+    ["2026-05-01T00:00:00Z", 462000, 479000, 496000,  3000, 0.0063]
   ],
 
   "dimensions": [
-    {
-      "name": "estimatedDate",
-      "type": "time",
-      "unit": "date",
-      "role": "x",
-      "sortable": true,
-      "visibleInTable": true,
-      "visibleInChart": true
-    },
-    {
-      "name": "lowEstimate",
-      "type": "number",
-      "unit": "currency",
-      "currency": "USD",
-      "precision": 0,
-      "role": "series",
-      "sortable": true,
-      "visibleInTable": true,
-      "visibleInChart": true
-    },
-    {
-      "name": "estimatedValue",
-      "type": "number",
-      "unit": "currency",
-      "currency": "USD",
-      "precision": 0,
-      "role": "series",
-      "sortable": true,
-      "visibleInTable": true,
-      "visibleInChart": true
-    },
-    {
-      "name": "highEstimate",
-      "type": "number",
-      "unit": "currency",
-      "currency": "USD",
-      "precision": 0,
-      "role": "series",
-      "sortable": true,
-      "visibleInTable": true,
-      "visibleInChart": true
-    },
-    {
-      "name": "priorMonthEstimatedPriceChange",
-      "type": "number",
-      "unit": "currency",
-      "currency": "USD",
-      "precision": 0,
-      "role": "meta",
-      "sortable": true,
-      "visibleInTable": true,
-      "visibleInChart": false
-    },
-    {
-      "name": "priorMonthEstimatedPricePercentageChange",
-      "type": "number",
-      "unit": "percentage",
-      "precision": 2,
-      "role": "meta",
-      "sortable": true,
-      "visibleInTable": true,
-      "visibleInChart": false
-    }
+    { "name": "estimatedDate",                      "type": "time",   "unit": "date",       "role": "x",      "sortable": true, "visibleInTable": true,  "visibleInChart": true  },
+    { "name": "lowEstimate",                        "type": "number", "unit": "currency",   "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "estimatedValue",                     "type": "number", "unit": "currency",   "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "highEstimate",                       "type": "number", "unit": "currency",   "currency": "USD", "precision": 0, "role": "series", "sortable": true, "visibleInTable": true, "visibleInChart": true },
+    { "name": "priorMonthEstimatedPriceChange",     "type": "number", "unit": "currency",   "currency": "USD", "precision": 0, "role": "meta",   "sortable": true, "visibleInTable": true, "visibleInChart": false },
+    { "name": "priorMonthEstimatedPricePercentageChange", "type": "number", "unit": "percentage", "precision": 2, "role": "meta", "sortable": true, "visibleInTable": true, "visibleInChart": false }
   ],
 
   "meta": {
@@ -110,16 +46,16 @@
       "yAxis": "charts.homeValue.axes.y",
       "tooltip": "charts.homeValue.tooltip",
       "legendByKey": {
-        "lowEstimate": "charts.homeValue.series.low",
-        "estimatedValue": "charts.homeValue.series.estimated",
-        "highEstimate": "charts.homeValue.series.high"
+        "lowEstimate":   "charts.homeValue.series.low",
+        "estimatedValue":"charts.homeValue.series.estimated",
+        "highEstimate":  "charts.homeValue.series.high"
       },
       "tableColumnByKey": {
-        "estimatedDate": "charts.homeValue.columns.date",
-        "lowEstimate": "charts.homeValue.columns.low",
-        "estimatedValue": "charts.homeValue.columns.estimated",
-        "highEstimate": "charts.homeValue.columns.high",
-        "priorMonthEstimatedPriceChange": "charts.homeValue.columns.mtdChange",
+        "estimatedDate":                       "charts.homeValue.columns.date",
+        "lowEstimate":                         "charts.homeValue.columns.low",
+        "estimatedValue":                      "charts.homeValue.columns.estimated",
+        "highEstimate":                        "charts.homeValue.columns.high",
+        "priorMonthEstimatedPriceChange":      "charts.homeValue.columns.mtdChange",
         "priorMonthEstimatedPricePercentageChange": "charts.homeValue.columns.mtdPctChange"
       },
       "tableCaption": "charts.homeValue.tableCaption"
@@ -129,6 +65,6 @@
   "range": {
     "granularity": "monthly",
     "from": "2024-06-01T00:00:00Z",
-    "to": "2026-05-01T00:00:00Z"
+    "to":   "2026-05-01T00:00:00Z"
   }
 }

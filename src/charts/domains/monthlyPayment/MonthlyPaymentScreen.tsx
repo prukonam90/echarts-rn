@@ -8,15 +8,15 @@ import {
   usePresenterContext,
 } from '@xpanse/native-charts';
 import type { ApiRawPayload, Range } from '@xpanse/native-charts';
-import rawData from './sample-hvv-response.json';
-import { RangeDropdown } from './RangeDropdown';
+import rawData from './sample-monthly-payment-response.json';
+import { RangeDropdown } from '../homeValue/RangeDropdown';
 
 const PAYLOAD = rawData as unknown as ApiRawPayload;
 
-export function HomeValueScreen() {
+export function MonthlyPaymentScreen() {
   const [range, setRange] = useState<Range>('1y');
-  const ctx = usePresenterContext('charts.homeValue');
-  const chartType = useChartTypeFlag('chart.homeValue.type', 'line');
+  const ctx = usePresenterContext('charts.monthlyPayment');
+  const chartType = useChartTypeFlag('chart.monthlyPayment.type', 'bar');
 
   const { chartOption, tablePayload } = useMemo(
     () => transformPayload(PAYLOAD, { chartType, range, ctx }),

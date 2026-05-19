@@ -54,6 +54,7 @@ export interface ChartDataPayload {
   range: ChartRangeInfo;
 }
 
+/** Wire format returned by the API — tuple rows keyed by sourceMapKeys. */
 export interface ApiRawPayload {
   sourceMapKeys: string[];
   source: ChartCellValue[][];
@@ -71,21 +72,24 @@ export interface PresenterContext {
   formatNumber: (value: number, precision?: number) => string;
 }
 
-export interface ChartTemplate {
-  templateId: string;
-  version: string;
-  chartType: ChartType;
-  option: Record<string, unknown>;
-  description?: string;
-}
-
-export interface TemplatedChartResponse {
-  chartOption: Record<string, unknown>;
-  tablePayload: ChartDataPayload;
-  meta: {
-    templateId: string;
-    chartType: ChartType;
-    range: ChartRangeInfo;
-    resolvedAt: string;
+/** Subset of MD3Theme (React Native Paper) that this package consumes.
+ *  The full Paper theme is a structural superset — pass it directly. */
+export interface ChartCompatibleTheme {
+  dark: boolean;
+  colors: {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+    surface: string;
+    surfaceVariant: string;
+    onSurface: string;
+    onSurfaceVariant: string;
+    outlineVariant: string;
   };
+  fonts?: {
+    bodySmall?: { fontFamily?: string; fontSize?: number; fontWeight?: string | number };
+    labelSmall?: { fontFamily?: string; fontSize?: number; fontWeight?: string | number };
+  };
+  /** Override ECharts series palette. Defaults to [primary, secondary, tertiary]. */
+  seriesColors?: string[];
 }

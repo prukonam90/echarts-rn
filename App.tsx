@@ -3,10 +3,11 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { I18nextProvider } from 'react-i18next';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import i18n from './src/i18n';
-import { QueryProvider } from './src/providers/QueryProvider';
 import { HomeValueScreen } from './src/charts/domains/homeValue/HomeValueScreen';
 import { HomeEquityScreen } from './src/charts/domains/homeEquity/HomeEquityScreen';
-import { TemplatePreviewScreen } from './src/charts/domains/templatePreview/TemplatePreviewScreen';
+import { MonthlyPaymentScreen } from './src/charts/domains/monthlyPayment/MonthlyPaymentScreen';
+import { SavingsGrowthScreen } from './src/charts/domains/savingsGrowth/SavingsGrowthScreen';
+import { NetWorthScreen } from './src/charts/domains/netWorth/NetWorthScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -15,7 +16,6 @@ function App() {
     <SafeAreaProvider>
       <GestureHandlerRootView style={styles.root}>
         <I18nextProvider i18n={i18n}>
-          <QueryProvider>
             <SafeAreaView style={styles.root}>
               <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
               <ScrollView contentContainerStyle={styles.scroll}>
@@ -25,11 +25,16 @@ function App() {
                 <Text style={styles.heading}>Home Equity</Text>
                 <HomeEquityScreen />
                 <View style={styles.divider} />
-                <Text style={styles.heading}>Template Preview</Text>
-                <TemplatePreviewScreen />
+                <Text style={styles.heading}>Monthly Payment</Text>
+                <MonthlyPaymentScreen />
+                <View style={styles.divider} />
+                <Text style={styles.heading}>Savings Growth</Text>
+                <SavingsGrowthScreen />
+                <View style={styles.divider} />
+                <Text style={styles.heading}>Net Worth</Text>
+                <NetWorthScreen />
               </ScrollView>
             </SafeAreaView>
-          </QueryProvider>
         </I18nextProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>

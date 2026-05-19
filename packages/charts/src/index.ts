@@ -2,14 +2,13 @@
 export type {
   ApiRawPayload,
   ChartCellValue,
+  ChartCompatibleTheme,
   ChartDataPayload,
   ChartLabelKeys,
   ChartMeta,
   ChartRangeInfo,
   ChartRow,
   ChartType,
-  ChartTemplate,
-  TemplatedChartResponse,
   Dimension,
   DimensionType,
   DimensionUnit,
@@ -28,12 +27,12 @@ export {
   formatTableCell,
   pickXAxisFormatter,
 } from './contract/format';
-export { usePresenterContext } from './contract/context';
+export { createPresenterContext, usePresenterContext } from './contract/context';
+export type { PresenterContextOptions } from './contract/context';
 
 // Builders
 export { ChartView } from './builders/ChartView';
 export { DataTable } from './builders/DataTable';
-export { TemplatePreview } from './builders/TemplatePreview';
 export { lineChartBuilder } from './builders/lineChartBuilder';
 export { barChartBuilder } from './builders/barChartBuilder';
 export { areaChartBuilder } from './builders/areaChartBuilder';
@@ -51,10 +50,6 @@ export { sliceByRange } from './utils/sliceByRange';
 // Flags
 export { useChartTypeFlag, setChartTypeOverride } from './flags/useChartTypeFlag';
 
-// CDN
-export { cdnUrl, setCDNBaseUrl } from './cdn/config';
-export { fetchChartTemplate } from './cdn/fetchChartTemplate';
-export { deepMerge } from './cdn/deepMerge';
-
-// Server / template engine
-export { resolveTemplate } from './server/resolveTemplate';
+// Transformation
+export { transformPayload } from './server/transformPayload';
+export type { TransformPayloadInput, TransformPayloadResult } from './server/transformPayload';

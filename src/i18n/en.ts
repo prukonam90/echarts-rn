@@ -26,10 +26,7 @@ export const en = {
         tableCaption: 'Home value history',
       },
       homeEquity: {
-        axes: {
-          x: '',
-          y: '',
-        },
+        axes: { x: '', y: '' },
         series: {
           homeValue: 'Home Value',
           equity: 'Equity',
@@ -41,6 +38,54 @@ export const en = {
         },
         tooltip: 'Home Equity',
         tableCaption: 'Home equity history',
+      },
+      monthlyPayment: {
+        axes: { x: '', y: '' },
+        series: {
+          principal: 'Principal',
+          interest: 'Interest',
+          escrow: 'Escrow',
+        },
+        columns: {
+          date: 'Date',
+          principal: 'Principal',
+          interest: 'Interest',
+          escrow: 'Escrow',
+        },
+        tooltip: 'Monthly Payment',
+        tableCaption: 'Monthly mortgage payment breakdown',
+      },
+      savingsGrowth: {
+        axes: { x: '', y: '' },
+        series: {
+          contributions: 'Contributions',
+          returns: 'Returns',
+        },
+        columns: {
+          date: 'Date',
+          contributions: 'Contributions',
+          returns: 'Returns',
+        },
+        tooltip: 'Savings Growth',
+        tableCaption: 'Savings and investment growth',
+      },
+      netWorth: {
+        axes: { x: '', y: '' },
+        series: {
+          realEstate: 'Real Estate',
+          retirement: 'Retirement',
+          investments: 'Investments',
+          liquidAssets: 'Liquid Assets',
+        },
+        columns: {
+          date: 'Date',
+          realEstate: 'Real Estate',
+          retirement: 'Retirement',
+          investments: 'Investments',
+          liquidAssets: 'Liquid Assets',
+        },
+        tooltip: 'Net Worth',
+        tableCaption: 'Net worth composition',
       },
     },
   },
