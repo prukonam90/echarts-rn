@@ -14,6 +14,7 @@ import {
   TitleComponent,
   TooltipComponent,
 } from 'echarts/components';
+import type { ChartCompatibleTheme } from '../contract/types';
 
 echarts.use([
   TitleComponent,
@@ -29,6 +30,7 @@ echarts.use([
 
 interface ChartViewProps {
   option: EChartsOption;
+  theme?: ChartCompatibleTheme;
   width?: number;
   height?: number;
 }
@@ -37,6 +39,7 @@ const DEFAULT_HEIGHT = 280;
 
 export function ChartView({
   option,
+  theme,
   width = Dimensions.get('window').width,
   height = DEFAULT_HEIGHT,
 }: ChartViewProps) {
@@ -45,15 +48,25 @@ export function ChartView({
   useEffect(() => {
     let chart: echarts.EChartsType | undefined;
     if (ref.current) {
-      chart = echarts.init(ref.current, 'light', {
+      const echartTheme = theme?.dark ? 'dark' : 'light';
+      chart = echarts.init(ref.current, echartTheme, {
         renderer: 'svg',
         width,
         height,
       });
-      chart.setOption(option);
+
+      const palette = theme?.seriesColors ?? (theme
+        ? [theme.colors.primary, theme.colors.secondary, theme.colors.tertiary]
+        : undefined);
+
+      const finalOption: EChartsOption = palette
+        ? { color: palette, ...option }
+        : option;
+
+      chart.setOption(finalOption);
     }
     return () => chart?.dispose();
-  }, [option, width, height]);
+  }, [option, width, height, theme]);
 
   return <SvgChart ref={ref} useRNGH />;
 }

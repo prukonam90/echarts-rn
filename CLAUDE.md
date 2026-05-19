@@ -82,3 +82,14 @@ The same `ChartDataPayload` feeds both the chart and the table.
 - Builders never call hooks; they're pure functions of `(payload, ctx)`
 - Hooks (`useQuery`, `useTranslation`, `useChartTypeFlag`) live only in screen components
 - Every dimension declared by the API must be consumed by either the chart or the table (or both) — no dead fields. (This invariant is enforced by the backend; the client trusts the contract.)
+
+## Git & PR Workflow
+- Always verify `.gitignore` covers Pods/, node_modules/, and build artifacts BEFORE staging commits
+- Check file count with `git status` before committing; if >100 files, pause and confirm with user
+- Use `gh` CLI for PR creation when available; if not, output the GitHub compare URL for manual click
+Add as a new `## Planning` section near the top of CLAUDE.md\n\n## Planning
+- When entering plan mode for refactors, explicitly ask about: theming system (Paper/MUI/etc.), data sourcing constraints (no CDN, offline-first, etc.), and presentational vs. container boundaries before producing the plan
+Add as a new `## React Native / Metro` section\n\n## React Native / Metro
+- After refactors that touch library exports, run typecheck (`tsc --noEmit`) before declaring done
+- If Metro can't resolve a module from a workspace lib, check `package.json` `exports` field and the `react-native` condition before iterating on Metro config
+- Stale `lib/` compiled output is the most common cause of missing-export errors

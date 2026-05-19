@@ -8,15 +8,15 @@ import {
   usePresenterContext,
 } from '@xpanse/native-charts';
 import type { ApiRawPayload, Range } from '@xpanse/native-charts';
-import rawData from './sample-hvv-response.json';
-import { RangeDropdown } from './RangeDropdown';
+import rawData from './sample-savings-growth-response.json';
+import { RangeDropdown } from '../homeValue/RangeDropdown';
 
 const PAYLOAD = rawData as unknown as ApiRawPayload;
 
-export function HomeValueScreen() {
+export function SavingsGrowthScreen() {
   const [range, setRange] = useState<Range>('1y');
-  const ctx = usePresenterContext('charts.homeValue');
-  const chartType = useChartTypeFlag('chart.homeValue.type', 'line');
+  const ctx = usePresenterContext('charts.savingsGrowth');
+  const chartType = useChartTypeFlag('chart.savingsGrowth.type', 'area');
 
   const { chartOption, tablePayload } = useMemo(
     () => transformPayload(PAYLOAD, { chartType, range, ctx }),

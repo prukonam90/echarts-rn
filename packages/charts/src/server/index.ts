@@ -1,6 +1,6 @@
 export type {
-  ChartTemplate,
-  TemplatedChartResponse,
+  ApiRawPayload,
+  ChartCompatibleTheme,
   ChartDataPayload,
   ChartType,
   Range,
@@ -13,17 +13,21 @@ export type {
   ChartLabelKeys,
   Granularity,
   FlattenStrategy,
+  PresenterContext,
 } from '../contract/types';
-export type { PresenterContext } from '../contract/types';
 
-export { resolveTemplate } from './resolveTemplate';
+export { transformPayload } from './transformPayload';
+export type { TransformPayloadInput, TransformPayloadResult } from './transformPayload';
 
+export { createPresenterContext } from '../contract/context';
+export type { PresenterContextOptions } from '../contract/context';
+
+export { normalizeApiPayload } from '../utils/normalizeApiPayload';
 export { sliceByRange } from '../utils/sliceByRange';
 export { groupByYear } from '../utils/groupByYear';
 export { flattenForChart } from '../utils/flattenForChart';
 export { monthsBetween } from '../utils/monthsBetween';
 export { isHierarchical } from '../utils/isHierarchical';
-export { deepMerge } from '../cdn/deepMerge';
 
 export { getBuilder } from '../builders/chartBuilderRegistry';
 export { lineChartBuilder } from '../builders/lineChartBuilder';

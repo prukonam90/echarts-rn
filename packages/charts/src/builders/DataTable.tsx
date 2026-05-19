@@ -11,6 +11,7 @@ import {
 } from '@tanstack/react-table';
 import type {
   ChartCellValue,
+  ChartCompatibleTheme,
   ChartDataPayload,
   Dimension,
   PresenterContext,
@@ -22,12 +23,53 @@ type TableRow = Record<string, ChartCellValue>;
 interface DataTableProps {
   payload: ChartDataPayload;
   ctx: PresenterContext;
+  theme?: ChartCompatibleTheme;
 }
 
 const INDENT_PX = 16;
 
-export function DataTable({ payload, ctx }: DataTableProps) {
+function createStyles(theme?: ChartCompatibleTheme) {
+  const c = theme?.colors;
+  const f = theme?.fonts;
+  return StyleSheet.create({
+    container: { width: '100%' },
+    row: {
+      flexDirection: 'row',
+      paddingVertical: 8,
+      paddingHorizontal: 12,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: c?.outlineVariant ?? '#ddd',
+    },
+    headerRow: { backgroundColor: c?.surfaceVariant ?? '#f5f5f7' },
+    bodyRow: { backgroundColor: c?.surface ?? '#fff' },
+    cell: {
+      flex: 1,
+      fontSize: (f?.bodySmall?.fontSize as number | undefined) ?? 13,
+      fontFamily: f?.bodySmall?.fontFamily,
+      color: c?.onSurface ?? '#222',
+    },
+    headerCell: {
+      fontWeight: '600',
+      fontSize: (f?.labelSmall?.fontSize as number | undefined) ?? 13,
+      fontFamily: f?.labelSmall?.fontFamily,
+      color: c?.onSurfaceVariant ?? '#555',
+    },
+    cellWrapper: { flex: 1, flexDirection: 'row', alignItems: 'center' },
+    cellText: {
+      flexShrink: 1,
+      fontSize: (f?.bodySmall?.fontSize as number | undefined) ?? 13,
+      fontFamily: f?.bodySmall?.fontFamily,
+      color: c?.onSurface ?? '#222',
+    },
+    toggle: { width: 14, marginRight: 4 },
+    toggleText: { fontSize: 10, color: c?.onSurfaceVariant ?? '#666' },
+  });
+}
+
+export function DataTable({ payload, ctx, theme }: DataTableProps) {
   const [expanded, setExpanded] = useState<ExpandedState>({});
+
+  const styles = useMemo(() => createStyles(theme), [theme]);
 
   const visibleDimensions = useMemo(
     () => payload.dimensions.filter((d) => d.visibleInTable !== false),
@@ -90,7 +132,7 @@ export function DataTable({ payload, ctx }: DataTableProps) {
       <FlatList
         data={table.getRowModel().rows}
         keyExtractor={(r) => r.id}
-        renderItem={({ item }) => <DataRow row={item} ctx={ctx} />}
+        renderItem={({ item }) => <DataRow row={item} ctx={ctx} styles={styles} />}
       />
     </View>
   );
@@ -109,9 +151,11 @@ interface CellDescriptor {
 function DataRow({
   row,
   ctx,
+  styles,
 }: {
   row: Row<TableRow>;
   ctx: PresenterContext;
+  styles: ReturnType<typeof createStyles>;
 }) {
   return (
     <View style={[styles.row, styles.bodyRow]}>
@@ -121,7 +165,7 @@ function DataRow({
         ) => CellDescriptor;
         const descriptor = cellFn(cell.getContext());
         return (
-          <Cell key={cell.id} descriptor={descriptor} ctx={ctx} />
+          <Cell key={cell.id} descriptor={descriptor} ctx={ctx} styles={styles} />
         );
       })}
     </View>
@@ -131,9 +175,11 @@ function DataRow({
 function Cell({
   descriptor,
   ctx,
+  styles,
 }: {
   descriptor: CellDescriptor;
   ctx: PresenterContext;
+  styles: ReturnType<typeof createStyles>;
 }) {
   const text = formatTableCell(
     descriptor.value,
@@ -156,49 +202,3 @@ function Cell({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-  },
-  row: {
-    flexDirection: 'row',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#ddd',
-  },
-  headerRow: {
-    backgroundColor: '#f5f5f7',
-  },
-  bodyRow: {
-    backgroundColor: '#fff',
-  },
-  cell: {
-    flex: 1,
-    fontSize: 13,
-    color: '#222',
-  },
-  headerCell: {
-    fontWeight: '600',
-    color: '#555',
-  },
-  cellWrapper: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  cellText: {
-    flexShrink: 1,
-    fontSize: 13,
-    color: '#222',
-  },
-  toggle: {
-    width: 14,
-    marginRight: 4,
-  },
-  toggleText: {
-    fontSize: 10,
-    color: '#666',
-  },
-});

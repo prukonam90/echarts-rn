@@ -1,7 +1,7 @@
 import { groupByYear } from '../groupByYear';
 import { sliceByRange } from '../sliceByRange';
 import type { ChartDataPayload } from '../../contract/types';
-import sample from '../../cdn/fixtures/home-value.json';
+import sample from './fixtures-hvv.json';
 
 const PAYLOAD = sample as ChartDataPayload;
 
