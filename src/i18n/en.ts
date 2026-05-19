@@ -42,6 +42,24 @@ export const en = {
         tooltip: 'Home Equity',
         tableCaption: 'Home equity history',
       },
+      marketMeter: {
+        axes: {
+          x: '',
+          y: '',
+        },
+        series: {
+          marketScore: 'Market Score',
+        },
+        bands: {
+          strongSeller: "Strong Seller's Market",
+          seller: "Seller's Market",
+          neutral: 'Neutral',
+          buyer: "Buyer's Market",
+          strongBuyer: "Strong Buyer's Market",
+        },
+        tooltip: 'Market Score',
+        tableCaption: '',
+      },
     },
   },
 };

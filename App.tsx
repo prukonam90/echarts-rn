@@ -6,6 +6,7 @@ import i18n from './src/i18n';
 import { QueryProvider } from './src/providers/QueryProvider';
 import { HomeValueScreen } from './src/charts/domains/homeValue/HomeValueScreen';
 import { HomeEquityScreen } from './src/charts/domains/homeEquity/HomeEquityScreen';
+import { MarketMeterScreen } from './src/charts/domains/marketMeter/MarketMeterScreen';
 import { TemplatePreviewScreen } from './src/charts/domains/templatePreview/TemplatePreviewScreen';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
                 <View style={styles.divider} />
                 <Text style={styles.heading}>Home Equity</Text>
                 <HomeEquityScreen />
+                <View style={styles.divider} />
+                <Text style={styles.heading}>Market Meter</Text>
+                <MarketMeterScreen />
                 <View style={styles.divider} />
                 <Text style={styles.heading}>Template Preview</Text>
                 <TemplatePreviewScreen />

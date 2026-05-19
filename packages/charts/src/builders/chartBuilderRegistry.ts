@@ -2,6 +2,7 @@ import type { EChartsOption } from 'echarts';
 import type { ChartDataPayload, ChartType, PresenterContext } from '../contract/types';
 import { areaChartBuilder } from './areaChartBuilder';
 import { barChartBuilder } from './barChartBuilder';
+import { gaugeChartBuilder } from './gaugeChartBuilder';
 import { lineChartBuilder } from './lineChartBuilder';
 import { pieChartBuilder } from './pieChartBuilder';
 
@@ -12,6 +13,7 @@ const registry: Record<ChartType, Builder> = {
   bar: barChartBuilder,
   area: areaChartBuilder,
   pie: pieChartBuilder,
+  gauge: gaugeChartBuilder,
 };
 
 export function getBuilder(chartType: ChartType): Builder {

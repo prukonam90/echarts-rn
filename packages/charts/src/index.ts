@@ -38,6 +38,7 @@ export { lineChartBuilder } from './builders/lineChartBuilder';
 export { barChartBuilder } from './builders/barChartBuilder';
 export { areaChartBuilder } from './builders/areaChartBuilder';
 export { pieChartBuilder } from './builders/pieChartBuilder';
+export { gaugeChartBuilder } from './builders/gaugeChartBuilder';
 export { getBuilder } from './builders/chartBuilderRegistry';
 
 // Utils

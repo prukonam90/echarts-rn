@@ -1,0 +1,56 @@
+{
+  "sourceMapKeys": ["asOfDate", "marketScore"],
+
+  "source": [
+    ["2026-05-01T00:00:00Z", 65]
+  ],
+
+  "dimensions": [
+    {
+      "name": "asOfDate",
+      "type": "time",
+      "unit": "date",
+      "role": "x",
+      "visibleInChart": false,
+      "visibleInTable": false
+    },
+    {
+      "name": "marketScore",
+      "type": "number",
+      "unit": "count",
+      "precision": 0,
+      "role": "series",
+      "visibleInChart": true,
+      "visibleInTable": false
+    }
+  ],
+
+  "meta": {
+    "seriesKeys": ["marketScore"],
+    "xDimension": "asOfDate",
+    "defaultChartType": "gauge",
+    "labelKeys": {
+      "xAxis": "charts.marketMeter.axes.x",
+      "yAxis": "charts.marketMeter.axes.y",
+      "tooltip": "charts.marketMeter.tooltip",
+      "legendByKey": {
+        "marketScore": "charts.marketMeter.series.marketScore"
+      },
+      "tableColumnByKey": {},
+      "tableCaption": "charts.marketMeter.tableCaption",
+      "gaugeBandKeys": [
+        "charts.marketMeter.bands.strongSeller",
+        "charts.marketMeter.bands.seller",
+        "charts.marketMeter.bands.neutral",
+        "charts.marketMeter.bands.buyer",
+        "charts.marketMeter.bands.strongBuyer"
+      ]
+    }
+  },
+
+  "range": {
+    "granularity": "monthly",
+    "from": "2026-05-01T00:00:00Z",
+    "to": "2026-05-01T00:00:00Z"
+  }
+}

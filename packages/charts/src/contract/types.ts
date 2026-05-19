@@ -1,6 +1,6 @@
 export type DimensionType = 'time' | 'number' | 'ordinal';
 export type DimensionUnit = 'date' | 'currency' | 'percentage' | 'count';
-export type ChartType = 'line' | 'bar' | 'area' | 'pie';
+export type ChartType = 'line' | 'bar' | 'area' | 'pie' | 'gauge';
 export type Granularity = 'daily' | 'weekly' | 'monthly';
 export type FlattenStrategy = 'rootsOnly' | 'leavesOnly' | 'all';
 export type Range = '6m' | '1y' | '3y' | '5y';
@@ -31,6 +31,7 @@ export interface ChartLabelKeys {
   legendByKey: Record<string, string>;
   tableColumnByKey: Record<string, string>;
   tableCaption?: string;
+  gaugeBandKeys?: [string, string, string, string, string];
 }
 
 export interface ChartMeta {

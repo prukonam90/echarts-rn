@@ -6,7 +6,7 @@ import SvgChart, {
 } from '@wuba/react-native-echarts/svgChart';
 import * as echarts from 'echarts/core';
 import type { EChartsOption } from 'echarts';
-import { BarChart, LineChart, PieChart } from 'echarts/charts';
+import { BarChart, GaugeChart, LineChart, PieChart } from 'echarts/charts';
 import {
   DatasetComponent,
   GridComponent,
@@ -25,6 +25,7 @@ echarts.use([
   LineChart,
   BarChart,
   PieChart,
+  GaugeChart,
 ]);
 
 interface ChartViewProps {
