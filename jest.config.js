@@ -8,7 +8,7 @@ module.exports = {
         '@xpanse/native-charts': '<rootDir>/packages/charts/src/index.ts',
       },
       transformIgnorePatterns: [
-        'node_modules/(?!(react-native|@react-native|@wuba/react-native-echarts|echarts|zrender)/)',
+        'node_modules/(?!.*(?:react-native|@react-native|@wuba/react-native-echarts|echarts|zrender)/)',
       ],
     },
     {
