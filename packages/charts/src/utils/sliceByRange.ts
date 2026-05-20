@@ -5,6 +5,10 @@ const MONTHS_BY_RANGE: Record<Range, number> = {
   '1y': 12,
   '3y': 36,
   '5y': 60,
+  '10y': 120,
+  '15y': 180,
+  '30y': 360,
+  all: Number.POSITIVE_INFINITY,
 };
 
 export function sliceByRange(

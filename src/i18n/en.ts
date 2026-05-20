@@ -87,6 +87,22 @@ export const en = {
         tooltip: 'Net Worth',
         tableCaption: 'Net worth composition',
       },
+      amortization: {
+        axes: { x: '', y: '' },
+        series: {
+          scheduled: 'Scheduled Balance',
+          accelerated: 'With Extra Payments',
+          savings: 'Interest Saved',
+        },
+        columns: {
+          period: 'Date',
+          scheduledBalance: 'Scheduled',
+          acceleratedBalance: 'Projected',
+          cumulativeInterestSavings: 'Savings',
+        },
+        tooltip: 'Amortization',
+        tableCaption: 'Loan paydown schedule',
+      },
     },
   },
 };

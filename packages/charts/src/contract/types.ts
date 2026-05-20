@@ -3,7 +3,7 @@ export type DimensionUnit = 'date' | 'currency' | 'percentage' | 'count';
 export type ChartType = 'line' | 'bar' | 'area' | 'pie';
 export type Granularity = 'daily' | 'weekly' | 'monthly';
 export type FlattenStrategy = 'rootsOnly' | 'leavesOnly' | 'all';
-export type Range = '6m' | '1y' | '3y' | '5y';
+export type Range = '6m' | '1y' | '3y' | '5y' | '10y' | '15y' | '30y' | 'all';
 
 export interface Dimension {
   name: string;
@@ -39,6 +39,10 @@ export interface ChartMeta {
   defaultChartType: ChartType;
   chartFlattenStrategy?: FlattenStrategy;
   labelKeys: ChartLabelKeys;
+  /** Optional line-chart styling extensions. All default to current behavior. */
+  areaFill?: 'gradient' | 'solid' | 'none';
+  showSymbol?: boolean;
+  tooltip?: 'axis' | 'item' | 'none';
 }
 
 export interface ChartRangeInfo {

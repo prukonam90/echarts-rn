@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import {
   type ColumnDef,
   type ExpandedState,
@@ -24,13 +24,22 @@ interface DataTableProps {
   payload: ChartDataPayload;
   ctx: PresenterContext;
   theme?: ChartCompatibleTheme;
+  horizontalScroll?: boolean;
 }
 
 const INDENT_PX = 16;
+const SCROLL_COL_MIN_WIDTH = 120;
+const SCROLL_X_COL_MIN_WIDTH = 140;
 
-function createStyles(theme?: ChartCompatibleTheme) {
+function createStyles(theme?: ChartCompatibleTheme, horizontalScroll = false) {
   const c = theme?.colors;
   const f = theme?.fonts;
+  const cellLayout = horizontalScroll
+    ? { width: SCROLL_COL_MIN_WIDTH, flexShrink: 0 }
+    : { flex: 1 };
+  const xCellLayout = horizontalScroll
+    ? { width: SCROLL_X_COL_MIN_WIDTH, flexShrink: 0 }
+    : { flex: 1 };
   return StyleSheet.create({
     container: { width: '100%' },
     row: {
@@ -43,7 +52,13 @@ function createStyles(theme?: ChartCompatibleTheme) {
     headerRow: { backgroundColor: c?.surfaceVariant ?? '#f5f5f7' },
     bodyRow: { backgroundColor: c?.surface ?? '#fff' },
     cell: {
-      flex: 1,
+      ...cellLayout,
+      fontSize: (f?.bodySmall?.fontSize as number | undefined) ?? 13,
+      fontFamily: f?.bodySmall?.fontFamily,
+      color: c?.onSurface ?? '#222',
+    },
+    xCell: {
+      ...xCellLayout,
       fontSize: (f?.bodySmall?.fontSize as number | undefined) ?? 13,
       fontFamily: f?.bodySmall?.fontFamily,
       color: c?.onSurface ?? '#222',
@@ -54,7 +69,8 @@ function createStyles(theme?: ChartCompatibleTheme) {
       fontFamily: f?.labelSmall?.fontFamily,
       color: c?.onSurfaceVariant ?? '#555',
     },
-    cellWrapper: { flex: 1, flexDirection: 'row', alignItems: 'center' },
+    cellWrapper: { ...cellLayout, flexDirection: 'row', alignItems: 'center' },
+    xCellWrapper: { ...xCellLayout, flexDirection: 'row', alignItems: 'center' },
     cellText: {
       flexShrink: 1,
       fontSize: (f?.bodySmall?.fontSize as number | undefined) ?? 13,
@@ -66,10 +82,13 @@ function createStyles(theme?: ChartCompatibleTheme) {
   });
 }
 
-export function DataTable({ payload, ctx, theme }: DataTableProps) {
+export function DataTable({ payload, ctx, theme, horizontalScroll = false }: DataTableProps) {
   const [expanded, setExpanded] = useState<ExpandedState>({});
 
-  const styles = useMemo(() => createStyles(theme), [theme]);
+  const styles = useMemo(
+    () => createStyles(theme, horizontalScroll),
+    [theme, horizontalScroll],
+  );
 
   const visibleDimensions = useMemo(
     () => payload.dimensions.filter((d) => d.visibleInTable !== false),
@@ -120,15 +139,43 @@ export function DataTable({ payload, ctx, theme }: DataTableProps) {
 
   const headerGroup = table.getHeaderGroups()[0];
 
+  const header = (
+    <View style={[styles.row, styles.headerRow]}>
+      {headerGroup.headers.map((h) => {
+        const isX = h.column.id === xDimensionName;
+        return (
+          <Text
+            key={h.id}
+            style={[isX ? styles.xCell : styles.cell, styles.headerCell]}
+          >
+            {flexRender(h.column.columnDef.header, h.getContext()) as string}
+          </Text>
+        );
+      })}
+    </View>
+  );
+
+  if (horizontalScroll) {
+    const rows = table.getRowModel().rows;
+    return (
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator
+        style={styles.container}
+      >
+        <View>
+          {header}
+          {rows.map((row) => (
+            <DataRow key={row.id} row={row} ctx={ctx} styles={styles} />
+          ))}
+        </View>
+      </ScrollView>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      <View style={[styles.row, styles.headerRow]}>
-        {headerGroup.headers.map((header) => (
-          <Text key={header.id} style={[styles.cell, styles.headerCell]}>
-            {flexRender(header.column.columnDef.header, header.getContext()) as string}
-          </Text>
-        ))}
-      </View>
+      {header}
       <FlatList
         data={table.getRowModel().rows}
         keyExtractor={(r) => r.id}
@@ -188,9 +235,10 @@ function Cell({
     ctx,
   );
   const indent = descriptor.isXColumn ? descriptor.depth * INDENT_PX : 0;
+  const wrapperStyle = descriptor.isXColumn ? styles.xCellWrapper : styles.cellWrapper;
 
   return (
-    <View style={[styles.cellWrapper, { paddingLeft: indent }]}>
+    <View style={[wrapperStyle, { paddingLeft: indent }]}>
       {descriptor.isXColumn && descriptor.canExpand ? (
         <Pressable onPress={descriptor.toggleExpanded} hitSlop={6} style={styles.toggle}>
           <Text style={styles.toggleText}>{descriptor.isExpanded ? '▼' : '▶'}</Text>

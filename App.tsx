@@ -8,6 +8,7 @@ import { HomeEquityScreen } from './src/charts/domains/homeEquity/HomeEquityScre
 import { MonthlyPaymentScreen } from './src/charts/domains/monthlyPayment/MonthlyPaymentScreen';
 import { SavingsGrowthScreen } from './src/charts/domains/savingsGrowth/SavingsGrowthScreen';
 import { NetWorthScreen } from './src/charts/domains/netWorth/NetWorthScreen';
+import { AmortizationScreen } from './src/charts/domains/amortization';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -33,6 +34,9 @@ function App() {
                 <View style={styles.divider} />
                 <Text style={styles.heading}>Net Worth</Text>
                 <NetWorthScreen />
+                <View style={styles.divider} />
+                <Text style={styles.heading}>Amortization</Text>
+                <AmortizationScreen />
               </ScrollView>
             </SafeAreaView>
         </I18nextProvider>
